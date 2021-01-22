@@ -1,0 +1,4 @@
+/target/
+/Extent_Reports/*.html
+/allure-results/*.json
+/Screenshots/*.png
