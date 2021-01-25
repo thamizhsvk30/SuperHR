@@ -7,12 +7,19 @@
 	<test thread-count="5" name="Test">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			 <class name="mypageTest.LoginPageTest" />
+			 <class name="mypageTest.Signuppage_Test" />
+			 <class name="mypageTest.LoginPage_Test" />
+			 <class name="mypageTest.LogoutPage_Test" />
+			 <class name="mypageTest.AdminPage_Test" />
+			 <class name="mypageTest.Addemployee_Test" />
+			 <class name="mypageTest.EditemployeePage_Test" />
+			 <class name="mypageTest.Viewemployee_Test" />
 			 <class name="mypageTest.DashboardPageTest" />
-			 <class name="mypageTest.NewAdminCreationPageTest" />
 			 <class name="mypageTest.EmployeeAttendCalendarPageTest" />
-			 <class name="mypageTest.EmpLeaveCalendarPageTest" />
 			 <class name="mypageTest.AdminDailyAttendPageTest" />
+			 <class name="mypageTest.EmpLeaveCalendarPageTest" />
+			
+			
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -13,7 +13,7 @@ public class EmpLeaveCalendarPageTest extends BaseTest {
 	EmpLeaveCalendarpage empleaveCalenderpage;
 	BasePage basepage;
 	
-	@Test(priority=11)
+	@Test(priority=23)
 	public void verifyEmployeeview() {
 		empleaveCalenderpage = page.getInstance(EmpLeaveCalendarpage.class);
 		empleaveCalenderpage.mobileNumberField(get_Property_Data("MobNumber"));
@@ -24,7 +24,7 @@ public class EmpLeaveCalendarPageTest extends BaseTest {
 		Assert.assertTrue(empleaveCalenderpage.employeeSelction());
 		test.log(LogStatus.INFO, "Employee Flow Start");
 	}
-	@Test(priority=12)
+	@Test(priority=24)
 	public void verifyLeaveBalanceDetails() {
 		empleaveCalenderpage.get_ClickViewall().click();
 		String SickLeaveCount  = empleaveCalenderpage.get_SickLeavecount().getText();
@@ -32,6 +32,7 @@ public class EmpLeaveCalendarPageTest extends BaseTest {
 		
 		empleaveCalenderpage.applyLeave("Sick Leave",get_Property_Data("Date"));
 		test.log(LogStatus.INFO, "Leave Apply flow working as expected");
+		test.log(LogStatus.INFO, "Leave Balance and Leave List Screen working as expected");
 		
 		empleaveCalenderpage.refresh();
 		String SickLeaveCount1  = empleaveCalenderpage.get_SickLeavecount().getText();

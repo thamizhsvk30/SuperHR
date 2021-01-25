@@ -1,14 +1,23 @@
 package mypages;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -116,7 +125,19 @@ public class BasePage extends Page {
 		}
 		return null;
 	}
+	public boolean is_File_Downloaded(String downloadPath, String fileName) {
+		boolean flag = false;
+	    File dir = new File(downloadPath);
+	    File[] dir_contents = dir.listFiles();
+	  	    
+	    for (int i = 0; i < dir_contents.length; i++) {
+	        if (dir_contents[i].getName().contains(fileName))
+	            return flag=true;
+	            }
 
+	    return flag;
+	}
+	
 	public void dropdown_select(WebElement element,String text) {
 		Select dropdown = new Select(element);
 		dropdown.selectByVisibleText(text);
@@ -126,8 +147,39 @@ public class BasePage extends Page {
 	public void send_keys(By locator, String keysToSend) {
 		get_Element(locator).sendKeys(keysToSend);
 	}
-		
-
+	
+	public Select selectby(By locator) 
+	{
+		try 
+		{
+			wait_For_WebElement(locator);
+			Select se=new Select(driver.findElement(locator));
+			return se ;
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Some error occured while creating element: " + locator.toString());
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	public List<WebElement> get_Elements(By locator) 
+	{
+		try 
+		{
+			wait_For_WebElement(locator);
+			return driver.findElements(locator);
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Some error occured while creating element: " + locator.toString());
+			e.printStackTrace();
+		}
+		return null;
+	}	
+	
 	public static void closeBrowser() {
 	try {
 		driver.quit();
@@ -152,4 +204,86 @@ public class BasePage extends Page {
 		System.out.println(e.getMessage());
 	}
 }
+	public Actions action(By locator) 
+	{
+		try 
+		{
+			Actions Act=new Actions(driver);
+			return Act.moveToElement(driver.findElement(locator)) ;
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Some error occured while creating element: " + locator.toString());
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	public void scrolldown() 
+	{
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,1000)");
+	}
+	
+	
+	public void scrollup() 
+	{
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,0)");
+	}
+	
+	public void wait_For_element(By locator) 
+	{
+		WebElement element = null;
+		try 
+		{
+			element = driver.findElement(locator);
+			wait.until(ExpectedConditions.elementToBeClickable(locator));
+		} catch (Exception e) {
+			System.out.println("Unable to find the element: " + locator.toString());
+		}
+	}
+	
+	public void move_to_element(By locator) 
+	{
+		WebElement element = null;
+		try 
+		{
+			element = driver.findElement(locator);
+			((JavascriptExecutor)driver).executeScript("argument[0].scrollIntoView(true):",element);
+		} catch (Exception e) {
+			System.out.println("Unable to find the element: " + locator.toString());
+		}
+	}
+	
+	public boolean wait_For_elementinvisible(By locator) 
+	{
+		boolean element=true;
+		try 
+		{
+			return element = wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+		} catch (Exception e) {
+			System.out.println("Unable to find the element: " + locator.toString());
+		}
+		return element;
+		 
+	}
+	
+	public ArrayList<String>readexceldatas(String sheetname,int column) throws IOException
+	{
+		String xl=System.getProperty("user.dir") + "\\DataDriven\\" + get_Property_Data("Datadrivesheetname")+".xlsx";
+		FileInputStream fis=new FileInputStream(xl);
+		XSSFWorkbook wb=new XSSFWorkbook(fis);
+		XSSFSheet sheet=wb.getSheet(sheetname);
+		Iterator<Row> rowIterator=sheet.iterator();
+		rowIterator.next();
+		ArrayList<String> list=new ArrayList<String>();
+		while(rowIterator.hasNext())
+		{
+			list.add(rowIterator.next().getCell(column).getStringCellValue());
+		}
+		return list;
+	}
+
 }

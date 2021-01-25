@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="212716" started-at="2021-01-22T05:05:44Z" finished-at="2021-01-22T05:09:16Z">
+  <suite name="Suite" duration-ms="33377" started-at="2021-01-25T13:05:19Z" finished-at="2021-01-25T13:05:53Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="212716" started-at="2021-01-22T05:05:44Z" finished-at="2021-01-22T05:09:16Z">
-      <class name="mypageTest.AdminDailyAttendPageTest">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="setup" is-config="true" duration-ms="10726" started-at="2021-01-22T05:05:44Z" finished-at="2021-01-22T05:05:54Z">
+    <test name="Test" duration-ms="33377" started-at="2021-01-25T13:05:19Z" finished-at="2021-01-25T13:05:53Z">
+      <class name="mypageTest.EmployeeAttendCalendarPageTest">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="setup" is-config="true" duration-ms="12933" started-at="2021-01-25T13:05:20Z" finished-at="2021-01-25T13:05:32Z">
           <params>
             <param index="0">
               <value>
@@ -18,23 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyAdminLogin()[pri:12, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="verifyAdminLogin" duration-ms="1672" started-at="2021-01-22T05:05:55Z" finished-at="2021-01-22T05:05:56Z">
+        <test-method status="PASS" signature="verifyEmployeeview()[pri:17, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="verifyEmployeeview" duration-ms="11207" started-at="2021-01-25T13:05:32Z" finished-at="2021-01-25T13:05:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAdminLogin -->
-        <test-method status="PASS" signature="verifyAdminDailyViewFlow()[pri:13, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="verifyAdminDailyViewFlow" duration-ms="5515" started-at="2021-01-22T05:05:59Z" finished-at="2021-01-22T05:06:05Z">
+        </test-method> <!-- verifyEmployeeview -->
+        <test-method status="PASS" signature="verifyEmployeeAttendancePage()[pri:18, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="verifyEmployeeAttendancePage" duration-ms="1753" started-at="2021-01-25T13:05:47Z" finished-at="2021-01-25T13:05:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAdminDailyViewFlow -->
-        <test-method status="PASS" signature="verifyAdminMonthlyViewFlow()[pri:14, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="verifyAdminMonthlyViewFlow" duration-ms="184612" started-at="2021-01-22T05:06:08Z" finished-at="2021-01-22T05:09:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAdminMonthlyViewFlow -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="teardown" is-config="true" duration-ms="794" started-at="2021-01-22T05:09:15Z" finished-at="2021-01-22T05:09:16Z">
+        </test-method> <!-- verifyEmployeeAttendancePage -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="teardown" is-config="true" duration-ms="967" started-at="2021-01-25T13:05:52Z" finished-at="2021-01-25T13:05:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- mypageTest.AdminDailyAttendPageTest -->
+      </class> <!-- mypageTest.EmployeeAttendCalendarPageTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

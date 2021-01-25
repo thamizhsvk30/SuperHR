@@ -1,9 +1,12 @@
 package mypages;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,8 +20,18 @@ public class AdminDailyAttendancePage extends BasePage {
 		super(driver);
 	}
 	//static MyListeners base = new MyListeners();
-
+	//static String fetch;
+	List<String> List_Employee;
+	List<String> Employee_List;
+	List<WebElement> row;
+	List<WebElement> ListEmployees;
+	String row_xpath;
+	String EmployeeName;
+	String List__Employees;
+	String Leave_Tot;
 	
+	
+	// Login flow
 	private By mobNumber = By.tagName("input");
 	private By submitBtn = By.xpath("//button[@type='submit']");
 	private By password = By.xpath("//input[@placeholder='Password']");
@@ -31,6 +44,7 @@ public class AdminDailyAttendancePage extends BasePage {
 	//private By TotalLeave=By.xpath("(//td[@class='table-tdata ng-star-inserted'])[7]");
 	private By TotalLeave = By.xpath("(//span[@class='ng-star-inserted'])[14]");
 	
+	// Employee daily Status in Admin view
 	private By clickDailyview = By.xpath("//a[@class='header-item header-sub-item active ng-star-inserted']");
 	private By clickpresent = By.xpath("//button[@class='attendance-day-head-btn attendance-day-head-active ng-star-inserted']");
 	private By clickOntimeEarly = By.xpath("(//span[@class='attendance-day-tab-label'])[1]");
@@ -39,19 +53,32 @@ public class AdminDailyAttendancePage extends BasePage {
 	private By clickAbsent = By.xpath("(//button[@class='attendance-day-head-btn ng-star-inserted'])[1]");
 	private By clickLeave = By.xpath("(//button[@class='attendance-day-head-btn ng-star-inserted'])[2]");
 	
+	// Employee Monthly view 
 	private By AttendanceMonthly = By.xpath("//a[text()=' Attendance - Monthly']");
-	private By Calendar = By.xpath("//input[@class='ng-tns-c96-0 attendance-month-calender-input p-inputtext p-component ng-star-inserted']");
-	private By Dec = By.xpath("//span[@class='p-monthpicker-month ng-tns-c96-0 p-ripple ng-star-inserted p-highlight']");
+	private By Calendar = By.xpath("(//input[@type='text'])[1]");
+	private By Dec = By.xpath("//span[text()=' Dec ']");
+	
+	// Get List_Employees Details
+	private By Employee = By.xpath("(//img[@class='normal mr-1'])[2]");
+	private By EmployeeHead = By.xpath("//p[@class='view-total m-0']");
+	//a[@ng-reflect-router-link='/employees']
 	
 	
+	
+	public WebElement get_Employee() {
+		return get_Element(Employee);
+	}
 	public WebElement get_AttendanceMonthly() {
 		return get_Element(AttendanceMonthly);
 	}
-	public WebElement get_Calendar(String string) {
+	public WebElement get_Calendar() {
 		return get_Element(Calendar);
 	}
 	public WebElement get_Dec() {
 		return get_Element(Dec);
+	}
+	public WebElement get_EmployeeHead() {
+		return get_Element(EmployeeHead);
 	}
 	public WebElement get_MobNumber() {
 		return get_Element(mobNumber);
@@ -120,7 +147,7 @@ public class AdminDailyAttendancePage extends BasePage {
 		get_NextBtn().click();
 	
 	}
-	public Boolean adminDailyAttendanceCheck() throws Throwable {
+	public void adminDailyAttendanceCheck() throws Throwable {
 		try {
 			
 			wait_For_clickable_WebElement(clickAttandLeave);
@@ -136,56 +163,79 @@ public class AdminDailyAttendancePage extends BasePage {
 			get_ClickLate().click();
 			get_ClickAbsent().click();
 			get_ClickLeave().click();
-			return true;
+			//return true;
 		} catch (Exception e) {
-			return false;
+			
 		}
 	}
-	
-	ArrayList<String> List_Employee;
 	
 	
 	public void adminMonthlyView() throws Throwable {
 		try {
-		wait_For_clickable_WebElement(AttendanceMonthly);
-		get_AttendanceMonthly().click();
-		pageWait();
-		get_Calendar(get_Property_Data("DecMonth"));
-		get_Dec().click();
 		
+			//Get the Whole Employee Details
+			Thread.sleep(4000);
+			get_Employee().click();
+			wait_For_clickable_WebElement(EmployeeHead);
+			List_Employee = new ArrayList<String>();
+		    ListEmployees = driver.findElements(By.xpath("//p[@class='view-name pl-2 m-0']"));
+			//System.out.println(List_Employees);
+			for (int i = 0; i < ListEmployees.size(); i++) {
+			    List__Employees = ListEmployees.get(i).getText();
+				List_Employee.add(List__Employees);
+				}
+			System.out.println(List__Employees);
+			
+			//Get Employee Monthly Attendance Details
+			wait_For_clickable_WebElement(clickAttandLeave);
+			get_ClickAttandLeave().click();
+			wait_For_clickable_WebElement(AttendanceMonthly);
+			get_AttendanceMonthly().click();
+			pageWait();
+			get_Calendar().click();
+			Robot r = new Robot();
+			r.keyPress(KeyEvent.VK_CONTROL);
+			r.keyPress(KeyEvent.VK_A);
+			r.keyRelease(KeyEvent.VK_CONTROL);
+			r.keyRelease(KeyEvent.VK_A);
+			get_Calendar().sendKeys(get_Property_Data("DecMonth"));
+			get_Dec().click();
 		
-		List_Employee = new ArrayList<String>();
-		List<WebElement> row = driver.findElements(By.xpath("//table[@class='table w-100']/tbody/tr"));
-		String row_xpath;	
-		String EmployeeNames;
-		
-		for (int i = 0; i < row.size(); i++) {
-				row_xpath = "//table[@class='table w-100']/tbody/tr["+ i +"]/td[1]";
-				EmployeeNames = driver.findElement(By.xpath(row_xpath)).getText();
-				List_Employee.add(EmployeeNames);
+			Thread.sleep(4000);
+			Employee_List = new ArrayList<String>();
+			row = driver.findElements(By.xpath("//table[@class='table w-100']/tbody/tr"));
+			//System.out.println(row.size()); 
+			
+			for (int i = 1; i < row.size(); i++) {
+				row_xpath = "//table[@class='table w-100']/tbody/tr["+i+"]/td[1]";
+				EmployeeName = driver.findElement(By.xpath(row_xpath)).getText();
+				Employee_List.add(EmployeeName);
 			}
-		System.out.println(List_Employee);
-		
-		
-		//get_Calendar().click();
-		//get_Jan().click();
-		//return true;
+			//System.out.println(Employee_List.size());	
+			System.out.println(Employee_List);
+			//System.out.println("Below the Employee List is Perfectly Match to the Employee Details");
 		}catch (Exception e) {
 			//return false;
+		}
+        if (List_Employee.containsAll(Employee_List)) {
+			System.out.println("In Both the List Employees Names have matched ");
+		}
+        else {
+			System.out.println("Not Matched");
 		}
 		}
 	
 	public void clickLeaveapproval() {
-		
 		wait_For_clickable_WebElement(ClickWaitingForApprove);
 		get_ClickWaitingForApprove().click();
-		//get_clickReview().click();
+		
 	}
+	
 	public void leaveapproval() {
 		
 		wait_For_clickable_WebElement(TotalLeave);
 		WebElement TotalLeave = get_TotalLeave();
-		String Leave_Tot = TotalLeave.getText();
+		Leave_Tot = TotalLeave.getText();
 		int LeaveCount = Integer.parseInt(Leave_Tot);
 		if (LeaveCount>0) {
 			get_ClickApprove().click();
@@ -195,28 +245,6 @@ public class AdminDailyAttendancePage extends BasePage {
 			get_ClickReject().click();
 		}
 	}
-	
-	public void getDataFromTable() throws Throwable {
-	 WebElement table = driver.findElement(By.tagName("table"));
-	 List<WebElement> iRow = table.findElements(By.tagName("tr"));
-	 for (int i = 1; i < iRow.size(); i++) {
-		WebElement row = iRow.get(i);
-		List<WebElement> iData = row.findElements(By.tagName("td"));
-		for (int j = 0; j < iData.size()-3; j++) {
-			WebElement data = iData.get(j);
-			String text = data.getText();
-			System.out.println(text);
-		}
-	}
-	 
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

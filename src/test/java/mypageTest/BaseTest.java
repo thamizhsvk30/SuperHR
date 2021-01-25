@@ -9,6 +9,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -108,5 +112,42 @@ public class BaseTest extends MyListeners {
 		}
 		return null;
 	}
+	public int getRowCount (String Sheet)
+	{
+		String xl=System.getProperty("user.dir") + "\\DataDriven\\" + get_Property_Data("Datadrivesheetname")+".xlsx";
+		try
+		{
+			FileInputStream fis = new FileInputStream(xl);
+			Workbook wb = WorkbookFactory.create(fis);
+			return wb.getSheet(Sheet).getLastRowNum();
+		}
+		catch (Exception e)
+        {
+			return 0;
+        }
+	}
+	
+	public String get_Excel_Data(String Sheet,int rowNum, int colNum) 
+	{
+		String xl=System.getProperty("user.dir") + "\\DataDriven\\" + get_Property_Data("Datadrivesheetname")+".xlsx";
+		String Value = null;
+		try 
+		{
+			
+			FileInputStream fis = new FileInputStream(xl);
+			Workbook workbook = WorkbookFactory.create(fis);
+			Sheet sheets = workbook.getSheet(Sheet);
+			DataFormatter formatter = new DataFormatter();
+			Value = formatter.formatCellValue(sheets.getRow(rowNum).getCell(colNum));
+	    }
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return Value;
+	}
+	
+
 	
 }

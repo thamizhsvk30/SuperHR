@@ -1,6 +1,8 @@
 package mypages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -155,5 +157,46 @@ public class DashboardPage extends BasePage {
 		get_CloseBtn().click();
 		return tickIconStatusout;
 	}
+	public void clickingtheemployeetab() throws InterruptedException 
+	{
+		try
+		{
+			//After login licking the employee tab
+			By Configuration = By.xpath("//a[@ng-reflect-router-link='/employees']");
+			get_Element(Configuration).click();
+			wait_For_clickable_WebElement(Configuration);
+		}
+		catch(StaleElementReferenceException e)
+		{
+			By Configuration = By.xpath("//a[@ng-reflect-router-link='/employees']");
+			get_Element(Configuration).click();
+			wait_For_clickable_WebElement(Configuration);
+		}
+		catch(ElementClickInterceptedException e)
+		{
+			By Configuration = By.xpath("//a[@ng-reflect-router-link='/employees']");
+			get_Element(Configuration).click();
+			wait_For_clickable_WebElement(Configuration);
+		}
 
+	}
+	
+	public String employeetabname() throws InterruptedException 
+	{
+		try{
+			//After login licking the employee tab
+			Thread.sleep(5000);
+			By Configuration = By.xpath("//a[@ng-reflect-router-link='/employees']");
+			wait_For_WebElement(Configuration);
+			return get_Element(Configuration).getText();
+		}
+		catch(StaleElementReferenceException e)
+		{
+			Thread.sleep(5000);
+			By Configuration = By.xpath("//a[@ng-reflect-router-link='/employees']");
+			wait_For_WebElement(Configuration);
+			return get_Element(Configuration).getText();
+		}
+	}
 }
+

@@ -9,10 +9,10 @@ import mypages.DashboardPage;
 import mypages.LoginPage;
 
 
-public class LoginPageTest extends BaseTest {
+public class LoginPage_Test extends BaseTest {
 	LoginPage loginPage;
 	
-	@Test(priority=0)
+	@Test(priority=2)
 	public void verifyWithInvalidMobileNum() {
 		loginPage = page.getInstance(LoginPage.class);
 		loginPage.mobileNumberField("asd344@@");
@@ -21,7 +21,7 @@ public class LoginPageTest extends BaseTest {
 		test.log(LogStatus.INFO, "Error message display as 'Please enter 10-digit phone number'");
 	}
 	
-	@Test(priority=1)
+	@Test(priority=3)
 	public void verifyWithValidMobileNum() {
 		loginPage.mobileNumberField(get_Property_Data("EmpMobNum"));
 		test.log(LogStatus.INFO, "Login with valid number: "+get_Property_Data("EmpMobNum"));
@@ -29,7 +29,7 @@ public class LoginPageTest extends BaseTest {
 		test.log(LogStatus.INFO, "Application navigates to password page successfully");
 	}
 	
-	@Test(priority=2)
+	@Test(priority=4)
 	public void verifyWithInvalidPassword() {
 		test.log(LogStatus.INFO, "Login with valid number: "+get_Property_Data("EmpMobNum"));
 		loginPage.passwordField("Aasd344@@");
@@ -38,7 +38,7 @@ public class LoginPageTest extends BaseTest {
 		test.log(LogStatus.INFO, "Error message display as 'Invalid Credentials'");
 	}
 	
-	@Test(priority=3)
+	@Test(priority=5)
 	public void verifyWithValidCredentials() {
 		test.log(LogStatus.INFO, "Login with valid number: "+get_Property_Data("EmpMobNum"));
 		loginPage.passwordField(get_Property_Data("EmpPassword"));

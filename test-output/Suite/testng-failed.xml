@@ -7,13 +7,13 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="mypageTest.AdminDailyAttendPageTest">
+      <class name="mypageTest.PasswordPage_Test">
         <methods>
-          <include name="verifyAdminMonthlyViewFlow"/>
+          <include name="verifyAdminView"/>
           <include name="teardown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- mypageTest.AdminDailyAttendPageTest -->
+      </class> <!-- mypageTest.PasswordPage_Test -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

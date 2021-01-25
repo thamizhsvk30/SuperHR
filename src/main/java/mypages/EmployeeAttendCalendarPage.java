@@ -100,12 +100,20 @@ public class EmployeeAttendCalendarPage extends BasePage{
 		get_presentDateClick().click(); 
 		String present = get_Calendarpresent().getText();
 		String dailyPresentstatus = get_Dailystatuspresent().getText();
+		
 		String absent = get_CalenderAbsent().getText();
 		String dailyAbsentstatus = get_DailyStatusAbsent().getText();
-		 if(present.equalsIgnoreCase(dailyPresentstatus) && absent.equalsIgnoreCase(dailyAbsentstatus)) {
+		 
+		if(present.equalsIgnoreCase(dailyPresentstatus) && absent.equalsIgnoreCase(dailyAbsentstatus)) {
 			 System.out.println("true");
 		 }
 		return true;
 		}	
+	
+	public void attendanceDetails() {
+		if (empAttendancetest()==true) {
+			System.out.println("Employee Present & Absent Details Verified");
+	}
+	}
 }
 

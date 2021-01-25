@@ -18,7 +18,7 @@ public class AdminDailyAttendPageTest extends BaseTest{
 	AdminDailyAttendancePage admindailyattendpage;
 	BasePage basepage;
 	
-	@Test(priority=12)
+	@Test(priority=19)
 	public void verifyAdminLogin() throws Exception {
 		admindailyattendpage = page.getInstance(AdminDailyAttendancePage.class);
 		admindailyattendpage.mobileNumberField(get_Property_Data("MobNumber"));
@@ -27,32 +27,27 @@ public class AdminDailyAttendPageTest extends BaseTest{
 		test.log(LogStatus.INFO, "Login with :"+get_Property_Data("EmpPassword"));
 		test.log(LogStatus.INFO, "Successfully login For Admin");
 	}
-	@Test(priority=13)
+	
+	@Test(priority=20)
 	public void verifyAdminDailyViewFlow() throws Throwable {
 		admindailyattendpage.adminDailyAttendanceCheck();
-			test.log(LogStatus.INFO, "Absent presant And Leave Flow was working as expected");
+		test.log(LogStatus.INFO, "Absent presant And Leave Flow was working as expected");
 	}
-	
-	@Test(priority=14)
+
+	@Test(priority=21)
 	public void verifyAdminMonthlyViewFlow() throws Throwable {
+		//admindailyattendpage.employee_List();
 		admindailyattendpage.adminMonthlyView();
-		
-		test.log(LogStatus.INFO, "Below the List Of Employees Are Present In the January Month");
+		test.log(LogStatus.INFO, "List Of Employees are Present In the December 2020 has been Verified");
 	}
 	
-	/*@Test(priority=15)
+	
+	@Test(priority=22)
 	public void verifyAdminLeaveApproval() {
 		admindailyattendpage.clickLeaveapproval();
 		admindailyattendpage.leaveapproval();
 		test.log(LogStatus.INFO, "Admin Leave Approval working as Expected");
-	}*/
-	
-	
-	
-	
-	
-	
-	
+	}
 }
 
 
