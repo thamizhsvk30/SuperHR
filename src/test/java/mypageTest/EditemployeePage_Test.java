@@ -16,7 +16,7 @@ public class EditemployeePage_Test extends BaseTest
 	DashboardPage dashboardPage;
 	EditEmployeePage Editemploy;
 	
-	@Test(priority = 11)
+	@Test(priority = 10)
 	public void Editingemployeedetails() throws InterruptedException 
 	{
 		login=page.getInstance(login.class);

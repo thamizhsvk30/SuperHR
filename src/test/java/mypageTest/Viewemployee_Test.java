@@ -18,7 +18,8 @@ public class Viewemployee_Test extends BaseTest
 	EditEmployeePage EditEmployeePage;
 	ViewEmployeePage ViewEmployeePage;
 	LogoutPage LogoutPage;
-	@Test(priority = 12)
+	
+	@Test(priority = 11)
 	public void viewemployeedetails() throws InterruptedException 
 	{
 		Signuppage =page.getInstance(Signuppage.class);
@@ -46,7 +47,7 @@ public class Viewemployee_Test extends BaseTest
 					dashboardPage.clickingtheemployeetab();
 					test.log(LogStatus.INFO, "Clicking the employee Tab Sucessfully");
 				//	EditEmployeePage.searchemployeelist(Firstname);
-					test.log(LogStatus.INFO, "Searching the employee from the list");
+				//	test.log(LogStatus.INFO, "Searching the employee from the list");
 					ViewEmployeePage.pesronaldetailsverification(Firstname);
 					test.log(LogStatus.INFO, "Checkig the employee personal details");
 					ViewEmployeePage.employeedetailsverification(Firstname);

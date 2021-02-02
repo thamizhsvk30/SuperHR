@@ -2,7 +2,11 @@ package mypages;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -59,12 +63,26 @@ public class AdminDailyAttendancePage extends BasePage {
 	private By Dec = By.xpath("//span[text()=' Dec ']");
 	
 	// Get List_Employees Details
-	private By Employee = By.xpath("(//img[@class='normal mr-1'])[2]");
+	private By Employee = By.xpath("//a[@ng-reflect-router-link='/employees']");
 	private By EmployeeHead = By.xpath("//p[@class='view-total m-0']");
-	//a[@ng-reflect-router-link='/employees']
+	private By EmpName = By.xpath("//p[@class='view-name pl-2 m-0']");
+	private By Clickadhithya = By.xpath("(//p[@class='view-name pl-2 m-0'])[1]");
+	private By Attendleave = By.xpath("(//a[@ng-reflect-ng-class=''])[7]");
+	private By TakeShifttime = By.xpath("//span[@class='view-al-f15 ng-star-inserted']");
 	
+	public List<WebElement> get_TakeShifttime() {
+		return get_Elements(TakeShifttime);
+	}
+	public WebElement get_Attendleave() {
+		return get_Element(Attendleave);
+	}
 	
-	
+	public WebElement get_Clickadhithya() {
+		return get_Element(Clickadhithya);
+	}
+	public List<WebElement> get_EmpNames() {
+		return get_Elements(EmpName);
+	}
 	public WebElement get_Employee() {
 		return get_Element(Employee);
 	}
@@ -149,6 +167,32 @@ public class AdminDailyAttendancePage extends BasePage {
 	}
 	public void adminDailyAttendanceCheck() throws Throwable {
 		try {
+			/*Thread.sleep(4000);
+			get_Employee().click();
+			wait_For_clickable_WebElement(EmployeeHead);
+			System.out.println(get_EmpNames().get(1).getText());
+			
+			get_Attendleave().click();
+			String Shifttime = get_TakeShifttime().get(3).getText();
+			System.out.println(Shifttime);
+			
+			String substring = Shifttime.substring(0,5);
+			System.out.println(substring);
+			
+			String replace = substring.replace(":", ".");
+			System.out.println(replace);
+			
+			int ActualShiftTime = Integer.parseInt(substring);
+			System.out.println(ActualShiftTime);
+			
+			DateFormat df = new SimpleDateFormat("hh:mm");
+			DateFormat df1 = new SimpleDateFormat("HH:mm");
+			System.out.println(df1);*/
+			
+			
+		
+			
+		
 			
 			wait_For_clickable_WebElement(clickAttandLeave);
 			get_ClickAttandLeave().click();
@@ -179,12 +223,12 @@ public class AdminDailyAttendancePage extends BasePage {
 			wait_For_clickable_WebElement(EmployeeHead);
 			List_Employee = new ArrayList<String>();
 		    ListEmployees = driver.findElements(By.xpath("//p[@class='view-name pl-2 m-0']"));
-			//System.out.println(List_Employees);
+			//System.out.println(ListEmployees);
 			for (int i = 0; i < ListEmployees.size(); i++) {
 			    List__Employees = ListEmployees.get(i).getText();
 				List_Employee.add(List__Employees);
 				}
-			System.out.println(List__Employees);
+			System.out.println(List_Employee);
 			
 			//Get Employee Monthly Attendance Details
 			wait_For_clickable_WebElement(clickAttandLeave);

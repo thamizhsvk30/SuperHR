@@ -10,7 +10,7 @@
 			 <class name="mypageTest.Signuppage_Test" />
 			 <class name="mypageTest.LoginPage_Test" />
 			 <class name="mypageTest.LogoutPage_Test" />
-			 <class name="mypageTest.AdminPage_Test" />
+			 <class name="mypageTest.AdminviewPage_Test" />
 			 <class name="mypageTest.Addemployee_Test" />
 			 <class name="mypageTest.EditemployeePage_Test" />
 			 <class name="mypageTest.Viewemployee_Test" />

@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="33377" started-at="2021-01-25T13:05:19Z" finished-at="2021-01-25T13:05:53Z">
+  <suite name="Suite" duration-ms="89401" started-at="2021-02-01T13:08:57Z" finished-at="2021-02-01T13:10:26Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="33377" started-at="2021-01-25T13:05:19Z" finished-at="2021-01-25T13:05:53Z">
-      <class name="mypageTest.EmployeeAttendCalendarPageTest">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="setup" is-config="true" duration-ms="12933" started-at="2021-01-25T13:05:20Z" finished-at="2021-01-25T13:05:32Z">
+    <test name="Test" duration-ms="89401" started-at="2021-02-01T13:08:57Z" finished-at="2021-02-01T13:10:26Z">
+      <class name="mypageTest.PayrollPage_Test">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:mypageTest.PayrollPage_Test@59309333]" name="setup" is-config="true" duration-ms="35794" started-at="2021-02-01T13:08:57Z" finished-at="2021-02-01T13:09:33Z">
           <params>
             <param index="0">
               <value>
@@ -18,19 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyEmployeeview()[pri:17, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="verifyEmployeeview" duration-ms="11207" started-at="2021-01-25T13:05:32Z" finished-at="2021-01-25T13:05:44Z">
+        <test-method status="PASS" signature="verifyPayRollPage()[pri:1, instance:mypageTest.PayrollPage_Test@59309333]" name="verifyPayRollPage" duration-ms="24119" started-at="2021-02-01T13:09:33Z" finished-at="2021-02-01T13:09:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEmployeeview -->
-        <test-method status="PASS" signature="verifyEmployeeAttendancePage()[pri:18, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="verifyEmployeeAttendancePage" duration-ms="1753" started-at="2021-01-25T13:05:47Z" finished-at="2021-01-25T13:05:49Z">
+        </test-method> <!-- verifyPayRollPage -->
+        <test-method status="PASS" signature="verifyVariableEarnings()[pri:3, instance:mypageTest.PayrollPage_Test@59309333]" name="verifyVariableEarnings" duration-ms="22390" started-at="2021-02-01T13:10:00Z" finished-at="2021-02-01T13:10:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEmployeeAttendancePage -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:mypageTest.EmployeeAttendCalendarPageTest@59309333]" name="teardown" is-config="true" duration-ms="967" started-at="2021-01-25T13:05:52Z" finished-at="2021-01-25T13:05:53Z">
+        </test-method> <!-- verifyVariableEarnings -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:mypageTest.PayrollPage_Test@59309333]" name="teardown" is-config="true" duration-ms="724" started-at="2021-02-01T13:10:26Z" finished-at="2021-02-01T13:10:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- mypageTest.EmployeeAttendCalendarPageTest -->
+      </class> <!-- mypageTest.PayrollPage_Test -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

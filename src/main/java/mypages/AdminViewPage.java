@@ -75,7 +75,7 @@ public class AdminViewPage extends BasePage {
 	public boolean cmpEdit() throws InterruptedException {
 		wait_For_element(configuration);
 		get_Configuration().click();
-		System.out.println("Admin view Flow Working as Expected");
+		//System.out.println("Admin view Flow Working as Expected");
 		wait_For_WebElement(cmpEditBtn);
 		Thread.sleep(5000);
 		//wait_For_clickable_WebElement(cmpEditBtn);

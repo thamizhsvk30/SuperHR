@@ -13,7 +13,7 @@ public class EmployeeAttendCalendarPageTest extends BaseTest{
 	EmployeeAttendCalendarPage empattendCalPage;
 	BasePage basepage;
 	
-	@Test(priority=17)
+	@Test(priority=16)
 	public void verifyEmployeeview() throws Exception {
 		
 		empattendCalPage = page.getInstance(EmployeeAttendCalendarPage.class);
@@ -25,7 +25,7 @@ public class EmployeeAttendCalendarPageTest extends BaseTest{
 		Assert.assertTrue(empattendCalPage.employeeSelction());
 		test.log(LogStatus.INFO, "Employee Flow Start");
 	}
-	@Test(priority=18)
+	@Test(priority=17)
 	public void verifyEmployeeAttendancePage() {
 		//Assert.assertTrue(empattendCalPage.empAttendancetest());
 		empattendCalPage.empAttendancetest();

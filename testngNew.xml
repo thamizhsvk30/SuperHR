@@ -6,10 +6,9 @@
 </listeners>
 <test thread-count="5" name="Test">
 <parameter name="browser" value="chrome" />
- <classes>
- 	 	 <class name="mypageTest.EmployeeAttendCalendarPageTest" />
- 	 	 
- 	 	      
+ <classes> 
+ 	 	<class name="mypageTest.PayrollPage_Test" />
+	
  </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

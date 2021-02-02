@@ -12,7 +12,7 @@ public class DashboardPageTest extends BaseTest {
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 
-	@Test(priority=13)
+	@Test(priority=12)
 	public void verifyProfilePage() {
 		loginPage = page.getInstance(LoginPage.class);
 		loginPage.mobileNumberField(get_Property_Data("EmpMobNum"));
@@ -25,19 +25,19 @@ public class DashboardPageTest extends BaseTest {
 		test.log(LogStatus.INFO, "All profile tab working as expected");
 	}
 	
-	@Test(priority=14)
-	public void verifyApplyLeaveScenarioWithoutLeaveBalance() {
-		Assert.assertEquals(dashboardPage.applyLeave("Casual Leave",get_current_date_minus_one()), "You do not have sufficient leave balance..");
+	@Test(priority=13)
+	public void verifyApplyLeaveScenario() {
+		dashboardPage.applyLeave("Casual Leave",get_Property_Data("Date"));
 		test.log(LogStatus.INFO, "Apply leave flow working as expected");
 	}
 	
-	@Test(priority=15)
+	@Test(priority=14)
 	public void verifyEmpCanCheckin() {
 		Assert.assertTrue(dashboardPage.checkInFlow());
 		test.log(LogStatus.INFO, "Employee got successfully checked in");
 	}
 	
-	@Test(priority=16)
+	@Test(priority=15)
 	public void verifyEmpCanCheckout() {
 		Assert.assertTrue(dashboardPage.checkOutFlow());
 		test.log(LogStatus.INFO, "Employee got successfully checked out");

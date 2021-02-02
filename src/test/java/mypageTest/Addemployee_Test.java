@@ -19,7 +19,7 @@ public class Addemployee_Test extends BaseTest
 	DashboardPage dashboardPage;
 	Addemp Addemp;
 	
-	@Test(priority = 10)
+	@Test(priority = 9)
 	public void Addingemployee() throws InterruptedException 
 	{
 		login=page.getInstance(login.class);

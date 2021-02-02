@@ -19,21 +19,21 @@ public class AdminviewPage_Test extends BaseTest
 	NewAdminCreation_Page newAdminCreationPage;
 	AdminViewPage adminViewPage;
 	
-	@Test(priority = 1)
-	public void Passwordupdate() 
+	@Test(priority = 7)
+	public void verifyNewAdminCreation() 
 	{
-		page.getInstance(Signuppage.class).do_signup(get_Property_Data("phonenumber"));
+		page.getInstance(Signuppage.class).do_signup(get_Property_Data("NewAdminphonenumber"));
 		page.getInstance(Registerpage.class).do_register(get_Property_Data("OTP"));
 		page.getInstance(PasswordPage.class).newpassword(get_Property_Data("newpassword"));
 		page.getInstance(PasswordPage.class).confirmpassword(get_Property_Data("confirmpassword"));
-		page.getInstance(NewAdminCreation_Page.class).newCmpyCreation();
 		test.log(LogStatus.INFO, "Admin Created Successfully");
+		page.getInstance(NewAdminCreation_Page.class).newCmpyCreation();
+		test.log(LogStatus.INFO, "Done the Company Initial Setup as expected");
 	}
-	@Test(priority=9)
+	@Test(priority=8)
 	public void verifyAdminView() throws InterruptedException {
 		Assert.assertTrue(page.getInstance(AdminViewPage.class).cmpEdit());
-		
-		test.log(LogStatus.INFO, "Admin View folw Verified Successfully");
+		test.log(LogStatus.INFO, "Admin View folw Working as Expected");
 		test.log(LogStatus.INFO, "Edit Company Details working as Expected ");	
 	}
 }
