@@ -7,8 +7,9 @@
 <test thread-count="5" name="Test">
 <parameter name="browser" value="chrome" />
  <classes> 
- 	 	<class name="mypageTest.PayrollPage_Test" />
-	
+ 	 	 	<class name="mypageTest.Payrollsetup_Test" />
+ 	 		<class name="mypageTest.PayrollPage_Test" />
+ 	 		<class name="mypageTest.RunPayRollPage_Test" />
  </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

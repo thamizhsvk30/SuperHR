@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="89401" started-at="2021-02-01T13:08:57Z" finished-at="2021-02-01T13:10:26Z">
+  <suite name="Suite" duration-ms="30755" started-at="2021-02-10T06:32:46Z" finished-at="2021-02-10T06:33:16Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="89401" started-at="2021-02-01T13:08:57Z" finished-at="2021-02-01T13:10:26Z">
-      <class name="mypageTest.PayrollPage_Test">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:mypageTest.PayrollPage_Test@59309333]" name="setup" is-config="true" duration-ms="35794" started-at="2021-02-01T13:08:57Z" finished-at="2021-02-01T13:09:33Z">
+    <test name="Test" duration-ms="30755" started-at="2021-02-10T06:32:46Z" finished-at="2021-02-10T06:33:16Z">
+      <class name="mypageTest.AdminDailyAttendPageTest">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="setup" is-config="true" duration-ms="12595" started-at="2021-02-10T06:32:46Z" finished-at="2021-02-10T06:32:59Z">
           <params>
             <param index="0">
               <value>
@@ -18,19 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyPayRollPage()[pri:1, instance:mypageTest.PayrollPage_Test@59309333]" name="verifyPayRollPage" duration-ms="24119" started-at="2021-02-01T13:09:33Z" finished-at="2021-02-01T13:09:57Z">
+        <test-method status="PASS" signature="verifyAdminLogin()[pri:18, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="verifyAdminLogin" duration-ms="2373" started-at="2021-02-10T06:32:59Z" finished-at="2021-02-10T06:33:01Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyPayRollPage -->
-        <test-method status="PASS" signature="verifyVariableEarnings()[pri:3, instance:mypageTest.PayrollPage_Test@59309333]" name="verifyVariableEarnings" duration-ms="22390" started-at="2021-02-01T13:10:00Z" finished-at="2021-02-01T13:10:23Z">
+        </test-method> <!-- verifyAdminLogin -->
+        <test-method status="PASS" signature="verifyAdminDailyViewFlow()[pri:19, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="verifyAdminDailyViewFlow" duration-ms="8222" started-at="2021-02-10T06:33:04Z" finished-at="2021-02-10T06:33:12Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyVariableEarnings -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:mypageTest.PayrollPage_Test@59309333]" name="teardown" is-config="true" duration-ms="724" started-at="2021-02-01T13:10:26Z" finished-at="2021-02-01T13:10:26Z">
+        </test-method> <!-- verifyAdminDailyViewFlow -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:mypageTest.AdminDailyAttendPageTest@59309333]" name="teardown" is-config="true" duration-ms="1063" started-at="2021-02-10T06:33:15Z" finished-at="2021-02-10T06:33:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- mypageTest.PayrollPage_Test -->
+      </class> <!-- mypageTest.AdminDailyAttendPageTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

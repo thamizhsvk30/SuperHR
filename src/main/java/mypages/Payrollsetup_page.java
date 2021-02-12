@@ -30,7 +30,9 @@ public class Payrollsetup_page extends BasePage {
 	private By PayDate = By.xpath("(//input[@placeholder='DD-MM-YYYY'])[21]");
 	private By PayDateClick = By.xpath("//span[@ng-reflect-ng-class='[object Object]' and @tabindex='0']");
 	private By CutOffDate = By.xpath("(//input[@placeholder='DD-MM-YYYY'])[22]");
+	private By CutoffClick = By.xpath("//span[@ng-reflect-ng-class='[object Object]' and @tabindex='0']");
 	private By UpdateBtn = By.xpath("//button[@type='submit']");
+	
 	
 	//Payroll Template Screen
 	private By PayrollTemplate = By.xpath("(//p[@class='payroll-name pl-2 m-0'])[2]");
@@ -135,6 +137,10 @@ public class Payrollsetup_page extends BasePage {
 	public WebElement get_CutOffDate() {
 		return get_Element(CutOffDate);
 	}
+	public WebElement get_CutoffClick() {
+		return get_Element(CutoffClick);
+	}
+	
 	public WebElement get_UpdateBtn() {
 		return get_Element(UpdateBtn);
 	}
@@ -170,14 +176,15 @@ public class Payrollsetup_page extends BasePage {
 				Thread.sleep(4000);
 				get_Configuration().click();
 				wait_For_WebElement(PayRollSetup);
-				Thread.sleep(3000);
+				Thread.sleep(4000);
 				get_PayRollSetup().click();
 
 			}
 	}
 	
-	public void fillPayrollcalender() throws InterruptedException {
-		
+	public Boolean fillPayrollcalender() throws InterruptedException {
+		try {
+			
 		wait_For_WebElement(PayRollHead);
 		//get_SelectFinancialYear(get_Property_Data("Year"));
 		Thread.sleep(4000);
@@ -188,8 +195,13 @@ public class Payrollsetup_page extends BasePage {
 		Thread.sleep(4000);
 		get_CutOffDate().clear();
 		get_CutOffDate().sendKeys(get_Property_Data("Cutoffdate"));
+		get_CutoffClick().click();
 		wait_For_clickable_WebElement(UpdateBtn);
 		get_UpdateBtn().click();
+		return true;
+		} catch (Exception e) {
+		return false;
+		}
 	}
 	
 	public void navigateToPayrollTemplate() throws InterruptedException {
@@ -203,19 +215,19 @@ public class Payrollsetup_page extends BasePage {
 	
 	public void editPayrollTemplate() throws IOException {
 		
-		String EditPayrollTemplate			= get_Property_Data("EditPayrolltemp");
+	/*	String EditPayrollTemplate			= get_Property_Data("EditPayrolltemp");
 		ArrayList <String> TemplateName		= readexceldatas(EditPayrollTemplate,0);
 		ArrayList <String> Basic			= readexceldatas(EditPayrollTemplate,1);
 		ArrayList <String> HRA    			= readexceldatas(EditPayrollTemplate,2);
 		ArrayList <String> Conveyance		= readexceldatas(EditPayrollTemplate,3);
-		
+	*/	
 		get_EditButton().click();
 		
-		for (int i = 0; i < TemplateName.size(); i++) {
+		//for (int i = 0; i < TemplateName.size(); i++) {
 			
 			
 			get_TempName().clear();
-			get_TempName().sendKeys(TemplateName.get(i));
+			get_TempName().sendKeys(get_Property_Data("TempName"));
 			if (get_PFNoButton().isSelected()) {
 				System.out.println("PF Is Not Deducted");
 			}else {
@@ -223,18 +235,21 @@ public class Payrollsetup_page extends BasePage {
 				System.out.println("PF is Deducted");
 			}
 			get_BasicInput().clear();
-			get_BasicInput().sendKeys(Basic.get(i));
+			//get_BasicInput().sendKeys(Basic.get(i));
+			get_BasicInput().sendKeys(get_Property_Data("Basicper"));
 			get_HRAInput().clear();
-			get_HRAInput().sendKeys(HRA.get(i));
+			//get_HRAInput().sendKeys(HRA.get(i));
+			get_HRAInput().sendKeys(get_Property_Data("HRApercent"));
 			get_ConveyInput().clear();
-			get_ConveyInput().sendKeys(Conveyance.get(i));
+			//get_ConveyInput().sendKeys(Conveyance.get(i));
+			get_ConveyInput().sendKeys(get_Property_Data("Conveypercent"));
 			scrolldown();
 			get_SaveBtn().click();
 				
 		}
 		
 	}
-	 
+//} 
 
 	
-}
+

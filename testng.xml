@@ -19,6 +19,9 @@
 			 <class name="mypageTest.AdminDailyAttendPageTest" />
 			 <class name="mypageTest.EmpLeaveCalendarPageTest" />
 			
+		   	<class name="mypageTest.Payrollsetup_Test" />
+ 	 		<class name="mypageTest.PayrollPage_Test" />
+ 	 		<class name="mypageTest.RunPayRollPage_Test" />
 			
 		</classes>
 	</test> <!-- Test -->

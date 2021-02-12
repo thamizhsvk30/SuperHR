@@ -1,5 +1,8 @@
 package mypageTest;
 
+import static org.testng.Assert.assertEquals;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.LogStatus;
@@ -14,7 +17,7 @@ public class PayrollPage_Test extends BaseTest{
 	Payrollsetup_page payrollsetuppage;
 	Payroll_Page Payrollpage;
 	
-	@Test(priority=1)
+	@Test(priority=3)
 	public void verifyPayRollPage() throws InterruptedException {
 		payrollsetuppage  = page.getInstance(Payrollsetup_page.class);
 		Payrollpage  = page.getInstance(Payroll_Page.class);
@@ -24,20 +27,19 @@ public class PayrollPage_Test extends BaseTest{
 		page.getInstance(Payroll_Page.class).navigatePayRoll();
 		test.log(LogStatus.INFO,"Employee PayRoll View Working as Expected");
 	}
-	/*@Test(priority=2)
+	@Test(priority=4)
 	public void verifyVariableDeductionPage() throws InterruptedException {
-		page.getInstance(Payroll_Page.class).addNewVariableDeduction();
-		test.log(LogStatus.INFO,"New Variable Deduction added Successfully");
-		page.getInstance(Payroll_Page.class).searchEmpName();
+		//page.getInstance(Payroll_Page.class).addNewVariableDeduction();
+		//test.log(LogStatus.INFO,"New Variable Deduction added Successfully");
+		Assert.assertTrue(Payrollpage.verifyEmployeeDeduction());
 		test.log(LogStatus.INFO,"New Variable Deduction has been Successfully verified");
-	}*/
+	}
 	
-	@Test(priority=3)
+	@Test(priority=5)
 	public void verifyVariableEarnings() throws InterruptedException{
-		Payrollpage.addNewVariableEarning();
-		test.log(LogStatus.INFO,"New Variable Earnings added Successfully");
-		
-		{
-}		
+		//Payrollpage.addNewVariableEarning();
+		//test.log(LogStatus.INFO,"New Variable Earnings added Successfully");
+		Assert.assertTrue(Payrollpage.verifyEmployeeveriableEaning());
+		test.log(LogStatus.INFO,"New Variable Earnings has been Successfully verified");
 }
 }

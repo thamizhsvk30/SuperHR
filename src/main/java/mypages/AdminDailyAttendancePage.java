@@ -205,7 +205,9 @@ public class AdminDailyAttendancePage extends BasePage {
 			get_ClickDelayed().click();
             //getDataFromTable();
 			get_ClickLate().click();
+			Thread.sleep(3000);
 			get_ClickAbsent().click();
+			Thread.sleep(3000);
 			get_ClickLeave().click();
 			//return true;
 		} catch (Exception e) {

@@ -2,6 +2,7 @@ package mypageTest;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.LogStatus;
@@ -22,8 +23,8 @@ public class Payrollsetup_Test extends BaseTest{
 		test.log(LogStatus.INFO,"Admin Logged in Successfully");
 		page.getInstance(Payrollsetup_page.class).navigateToPayRollSetup();
 		test.log(LogStatus.INFO,"Navigate to PayRoll Setup page Working as Expected");
-		//payrollsetuppage.fillPayrollcalender();	
-		//test.log(LogStatus.INFO,"PayRoll Calendar View Working as Expected");
+		Assert.assertTrue(payrollsetuppage.fillPayrollcalender());	
+		test.log(LogStatus.INFO,"PayRoll Calendar View Working as Expected");
 	}
 	
 	@Test(priority=2)
